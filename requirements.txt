@@ -1,0 +1,14 @@
+# Telegram Bot依赖
+python-telegram-bot==20.7
+
+# Web框架
+flask==3.0.0
+
+# 异步支持
+aiohttp==3.9.1
+
+# HTTP客户端
+requests==2.32.3
+
+# 其他常用依赖
+python-dotenv==1.0.0
