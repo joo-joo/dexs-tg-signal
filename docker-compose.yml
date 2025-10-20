@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  telegram-signal-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: telegram-signal-api
+    ports:
+      - "5001:5001"
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=5001
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHAT_ID_ZH=${CHAT_ID_ZH}
+      - CHAT_ID_EN=${CHAT_ID_EN}
+      - API_DEBUG=${API_DEBUG:-false}
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
