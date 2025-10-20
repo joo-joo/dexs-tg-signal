@@ -21,7 +21,7 @@ class Settings:
 
     # API服务器配置
     API_HOST: str = os.getenv('API_HOST', '0.0.0.0')
-    API_PORT: int = int(os.getenv('API_PORT', 5001))
+    API_PORT: int = int(os.getenv('API_PORT', 8032))
     API_DEBUG: bool = os.getenv('API_DEBUG', 'False').lower() == 'true'
 
     # 日志配置
